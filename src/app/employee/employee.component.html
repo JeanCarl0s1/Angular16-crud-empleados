@@ -1,0 +1,56 @@
+<div class="container mt-4 p-2" >
+    <div class="card">
+            <h1 class="m-2">REGISTRAR/ACTUALIZAR EMPLEADO</h1>
+  <form class="p-2">
+    <div class="form-group m-1">
+      <label>Nombre completo</label>
+      <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"  class="form-control" id="name" placeholder="Ingresar el nombre completo"> 
+    </div>
+    <div class="form-group m-1">
+        <label>Identificación</label>
+        <input type="text" class="form-control"  [(ngModel)]="identification" [ngModelOptions]="{standalone: true}" id="identification" placeholder="Ingresar la identificación"> 
+      </div>
+      <div class="form-group m-1">
+        <label>Cargo</label>
+        <input type="text" class="form-control" [(ngModel)]="charge" [ngModelOptions]="{standalone: true}" id="charge" placeholder="Ingresar el cargo actual"> 
+      </div>
+      <div class="form-group m-1">
+        <label>Telefono</label>
+        <input type="text" class="form-control" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Ingresar el telefono de contacto"> 
+      </div>
+      <div class="form-group m-1">
+        <label>Salario</label>
+        <input type="text" class="form-control" [(ngModel)]="salary" [ngModelOptions]="{standalone: true}" id="salary" placeholder="Ingresar el salario"> 
+      </div>
+    <button type="submit" (click)="save()" class="btn btn-success btn-lg m-2">Guardar</button>
+  </form>
+  </div>
+  </div>
+  <div class="container mt-4" >
+  <h1>LISTA DE EMPLEADOS REGISTRADOS</h1>
+  <table class="table table-hover">
+  <thead>    
+  <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Identficación</th>
+      <th scope="col">Cargo</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Salario</th>  
+      <th scope="col">Option</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let employeeItem of employeeArray">
+      <td>{{employeeItem.nombre  | uppercase}}</td>
+      <td>{{employeeItem.identificacion }}</td>
+      <td>{{employeeItem.cargo }}</td>
+      <td>{{employeeItem.telefono }}</td>
+      <td>{{employeeItem.salario }}</td>
+      <td>
+        <button type="button" class="btn btn-primary m-1" (click)="setUpdate(employeeItem)"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button type="button" class="btn btn-danger m-1" (click)="setDelete(employeeItem)"><i class="fa-solid fa-trash"></i></button>            
+      </td>
+    </tr>          
+  </tbody>
+  </table>
+  </div>
